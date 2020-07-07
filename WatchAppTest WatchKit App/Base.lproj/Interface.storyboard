@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16097" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="16012"/>
+    </dependencies>
+    <scenes>
+        <!--首页-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller identifier="HomeListController" title="首页" id="AgC-eL-Hgc" customClass="HomeListController" customModule="WatchAppTest_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="o9v-0P-28g">
+                            <items>
+                                <tableRow identifier="HomeListRowController" id="clZ-xR-HqU" customClass="HomeListRowController" customModule="WatchAppTest_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="45" alignment="left" radius="6" spacing="8" id="oqw-K4-96R">
+                                        <items>
+                                            <imageView width="25" height="25" alignment="left" verticalAlignment="center" id="vyV-xv-dmK"/>
+                                            <label alignment="left" verticalAlignment="center" text="Label" numberOfLines="0" id="PHC-LM-POR">
+                                                <fontDescription key="font" type="system" pointSize="10"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="iconImage" destination="vyV-xv-dmK" id="vQ5-Lo-GlI"/>
+                                        <outlet property="titleLab" destination="PHC-LM-POR" id="xWO-MA-bL6"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="tableView" destination="o9v-0P-28g" id="2hb-VA-Ac8"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" numberOfLines="0" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                        <segue destination="eXb-UN-Cd0" kind="relationship" relationship="dynamicInteractiveNotificationInterface" id="mpB-YA-K8N"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="102" y="643"/>
+        </scene>
+        <!--MenusController-->
+        <scene sceneID="HKr-HX-tgL">
+            <objects>
+                <controller identifier="MenusController" id="QnL-zS-Yjk" customClass="MenusController" customModule="WatchAppTest_WatchKit_Extension">
+                    <menu key="menu" id="fhF-8A-JIq">
+                        <items>
+                            <menuItem title="YES" icon="accept" id="v9n-KS-TDN">
+                                <connections>
+                                    <action selector="sureAction" destination="QnL-zS-Yjk" id="LoW-x8-F1v"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="NO" icon="decline" id="Tj7-n4-aLX">
+                                <connections>
+                                    <action selector="cancelAction" destination="QnL-zS-Yjk" id="xmb-Jx-XCf"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Maybe" icon="maybe" id="xE9-tk-Aen">
+                                <connections>
+                                    <action selector="maybeAction" destination="QnL-zS-Yjk" id="b5T-Jh-K5s"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Remove" icon="trash" id="NgZ-I2-2pf">
+                                <connections>
+                                    <action selector="removeAction" destination="QnL-zS-Yjk" id="Ixf-HR-I6m"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="82" y="978"/>
+        </scene>
+        <!--PickerController-->
+        <scene sceneID="191-vr-gMK">
+            <objects>
+                <controller identifier="PickerController" id="OJK-Sc-SXl" customClass="PickerController" customModule="WatchAppTest_WatchKit_Extension">
+                    <items>
+                        <picker height="100" alignment="left" focusStyle="sequence" id="euu-D0-KTU">
+                            <connections>
+                                <action selector="listSelect:" destination="OJK-Sc-SXl" id="ruh-Vx-NQK"/>
+                            </connections>
+                        </picker>
+                        <picker height="100" alignment="left" style="stack" focusStyle="sequence" id="Hz8-tY-iN1">
+                            <connections>
+                                <action selector="stackSelect:" destination="OJK-Sc-SXl" id="rRv-g7-gJO"/>
+                            </connections>
+                        </picker>
+                        <picker height="100" alignment="left" style="sequence" focusStyle="stack" id="e6Q-ux-Nfr">
+                            <connections>
+                                <action selector="sequenceSelect:" destination="OJK-Sc-SXl" id="TgU-Xt-ZQR"/>
+                            </connections>
+                        </picker>
+                    </items>
+                    <connections>
+                        <outlet property="listPicker" destination="euu-D0-KTU" id="2D7-mc-Plg"/>
+                        <outlet property="sequencePicker" destination="e6Q-ux-Nfr" id="fpb-72-JPe"/>
+                        <outlet property="stackPicker" destination="Hz8-tY-iN1" id="zY3-3j-1LE"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-1" y="1347"/>
+        </scene>
+        <!--ProgressController-->
+        <scene sceneID="hO7-Jm-30m">
+            <objects>
+                <controller identifier="ProgressController" id="DQv-Rm-EEQ" customClass="ProgressController" customModule="WatchAppTest_WatchKit_Extension">
+                    <items>
+                        <group width="120" height="140" alignment="center" verticalAlignment="center" backgroundImage="activity-0" id="5fu-2l-McG">
+                            <items>
+                                <picker height="30" alignment="center" verticalAlignment="center" alpha="0.59999999999999998" id="8sL-Ek-hVO"/>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="backGroup" destination="5fu-2l-McG" id="hBR-k7-HWm"/>
+                        <outlet property="picker" destination="8sL-Ek-hVO" id="SuO-FL-UU3"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="288" y="1303"/>
+        </scene>
+        <!--MessageController-->
+        <scene sceneID="kNC-Ps-CEw">
+            <objects>
+                <controller identifier="MessageController" id="Qdn-9Z-jAA" customClass="MessageController" customModule="WatchAppTest_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Receive message..." numberOfLines="0" id="eHb-Cl-rcs">
+                            <fontDescription key="font" type="system" pointSize="15"/>
+                        </label>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Send To iPhone" id="BoV-DV-b7T">
+                            <connections>
+                                <action selector="sendMsgAction" destination="Qdn-9Z-jAA" id="9g5-l8-164"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="receiveLab" destination="eHb-Cl-rcs" id="yZD-69-ds7"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="288" y="1597"/>
+        </scene>
+        <!--AnimationController-->
+        <scene sceneID="tBw-mh-CkX">
+            <objects>
+                <controller identifier="AnimationController" id="LMe-B5-0zy" customClass="AnimationController" customModule="WatchAppTest_WatchKit_Extension">
+                    <items>
+                        <imageView width="50" height="50" alignment="center" image="heart" id="75w-nE-tw6"/>
+                        <group width="1" alignment="left" verticalAlignment="bottom" id="i9V-CD-dnx">
+                            <items>
+                                <button width="0.25" alignment="left" title="左右" id="gXt-3c-eLL">
+                                    <fontDescription key="font" type="system" pointSize="13"/>
+                                    <connections>
+                                        <action selector="planingAction" destination="LMe-B5-0zy" id="AVj-BP-zwU"/>
+                                    </connections>
+                                </button>
+                                <button width="0.25" alignment="left" title="缩放" id="9bS-ap-BxU">
+                                    <fontDescription key="font" type="system" pointSize="13"/>
+                                    <connections>
+                                        <action selector="zoomAction" destination="LMe-B5-0zy" id="ogC-if-Eeb"/>
+                                    </connections>
+                                </button>
+                                <button width="0.25" alignment="left" title="渐隐" id="LOM-DI-ySm">
+                                    <fontDescription key="font" type="system" pointSize="13"/>
+                                    <connections>
+                                        <action selector="fadAction" destination="LMe-B5-0zy" id="zra-j4-Qge"/>
+                                    </connections>
+                                </button>
+                                <button width="0.25" alignment="left" title="gif" id="fPV-FV-1uI">
+                                    <fontDescription key="font" type="system" pointSize="13"/>
+                                    <connections>
+                                        <action selector="gifAction" destination="LMe-B5-0zy" id="1t7-fc-GgG"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="image" destination="75w-nE-tw6" id="JOQ-jT-ErC"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="543" y="1288"/>
+        </scene>
+        <!--GestureRecongnizerController-->
+        <scene sceneID="4rD-gn-q9G">
+            <objects>
+                <controller identifier="GestureRecongnizerController" id="30q-Xz-nBV" customClass="GestureRecongnizerController" customModule="WatchAppTest_WatchKit_Extension">
+                    <items>
+                        <label width="1" height="60" alignment="center" text="Tap Me" textAlignment="center" id="ny1-Mg-Dx2">
+                            <gestureRecognizers>
+                                <tapGestureRecognizer id="2PT-dD-FOU">
+                                    <connections>
+                                        <action selector="tapAction:" destination="30q-Xz-nBV" id="okD-gO-D2Z"/>
+                                    </connections>
+                                </tapGestureRecognizer>
+                            </gestureRecognizers>
+                        </label>
+                        <label width="1" height="60" alignment="center" verticalAlignment="center" text="Long Press" textAlignment="center" id="zox-ts-o6G">
+                            <gestureRecognizers>
+                                <longPressGestureRecognizer id="VNu-cO-AWi">
+                                    <connections>
+                                        <action selector="longAction:" destination="30q-Xz-nBV" id="5mK-bs-pdb"/>
+                                    </connections>
+                                </longPressGestureRecognizer>
+                            </gestureRecognizers>
+                        </label>
+                        <label width="1" height="60" alignment="left" verticalAlignment="center" text="Pan Me" textAlignment="center" id="UCd-nN-sLi">
+                            <gestureRecognizers>
+                                <panGestureRecognizer id="aey-fM-dWA">
+                                    <connections>
+                                        <action selector="panAction:" destination="30q-Xz-nBV" id="fsW-0K-d5a"/>
+                                    </connections>
+                                </panGestureRecognizer>
+                            </gestureRecognizers>
+                        </label>
+                        <label width="1" height="60" alignment="left" text="Swipe Me" textAlignment="center" id="Gvp-6l-NhB">
+                            <gestureRecognizers>
+                                <swipeGestureRecognizer id="yP4-ni-peF">
+                                    <connections>
+                                        <action selector="swipeAction:" destination="30q-Xz-nBV" id="mhN-bv-ex0"/>
+                                    </connections>
+                                </swipeGestureRecognizer>
+                            </gestureRecognizers>
+                        </label>
+                    </items>
+                    <connections>
+                        <outlet property="longLab" destination="zox-ts-o6G" id="yZ6-I2-92V"/>
+                        <outlet property="panLab" destination="UCd-nN-sLi" id="CyW-kx-P2w"/>
+                        <outlet property="swipeLab" destination="Gvp-6l-NhB" id="kel-fI-VGN"/>
+                        <outlet property="tapLab" destination="ny1-Mg-Dx2" id="xsx-JG-Vbf"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="350" y="965"/>
+        </scene>
+        <!--AlertStyleController-->
+        <scene sceneID="Rqo-6z-NYv">
+            <objects>
+                <controller identifier="AlertStyleController" id="501-X8-Qc1" customClass="AlertStyleController" customModule="WatchAppTest_WatchKit_Extension">
+                    <items>
+                        <button width="1" alignment="left" title="Alert" id="kCU-Ts-7F8">
+                            <connections>
+                                <action selector="alertAction" destination="501-X8-Qc1" id="rcm-dD-r9i"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="SideBySide" id="pxp-Ec-IdO">
+                            <connections>
+                                <action selector="sideBySideAction" destination="501-X8-Qc1" id="G2X-pv-PpY"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Sheet" id="tvu-Kd-6se">
+                            <connections>
+                                <action selector="sheetAction" destination="501-X8-Qc1" id="46q-3V-6HC"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="634" y="953"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="WatchAppTest_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="440" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="Niz-AI-uX2">
+            <objects>
+                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="WatchAppTest_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="345"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="activity-0" width="280" height="280"/>
+        <image name="heart" width="50" height="50"/>
+    </resources>
+</document>
